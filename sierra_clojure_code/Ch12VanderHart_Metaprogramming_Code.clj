@@ -35,9 +35,9 @@
 ;; Snippit, ++ macro
 (defmacro ++ 
 	[& exprs]
-	(if (>= 2 (count exprs)
-		`(+ ~@exprs)
-		`(+ ~@(first exprs) (++ ~@(rest exprs))))))
+       (if (>= 2 (count exprs))
+               `(+ ~@exprs)
+               `(+ ~(first exprs) (++ ~@(rest exprs)))))
 
 ;; Snippit, xml-helper function and xml macro
 (defn xml-helper [form]
